@@ -2,14 +2,12 @@
 layout: default
 ---
 
-{% for page_num in (1..10) %}
 <amp-story-page id="page{{ page_num }}">
-        <amp-story-grid-layer template="fill">
-          <amp-img src="{{ page["image" + page_num] }}" width="720" height="1280" layout="responsive" alt="Image for Page {{ page_num }}" loading="lazy"></amp-img>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical">
-          <h2 class="title">{{ page["fact" + page_num] }}</h2>
-          <p class="subtitle">{{ page["fact_description" + page_num] }}</p>
-        </amp-story-grid-layer>
-      </amp-story-page>
-    {% endfor %}
+  <amp-story-grid-layer template="fill">
+    <amp-img src="{{ page["image" | append: page_num] }}" width="720" height="1280" layout="responsive" alt="Image for Page {{ page_num }}" loading="lazy"></amp-img>
+  </amp-story-grid-layer>
+  <amp-story-grid-layer template="vertical">
+    <h2 class="title">{{ page["fact" | append: page_num] }}</h2>
+    <p class="subtitle">{{ page["fact_description" | append: page_num] }}</p>
+  </amp-story-grid-layer>
+</amp-story-page>
