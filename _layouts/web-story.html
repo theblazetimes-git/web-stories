@@ -1,103 +1,9 @@
-<!DOCTYPE html>
-<html ⚡>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-  
-  <!-- Title and SEO tags -->
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}">
-  <meta name="keywords" content="{{ page.keywords }}">
-  <meta name="author" content="{{ page.author }}">
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="{{ page.title }}" />
-  <meta property="og:description" content="{{ page.description }}" />
-  <meta property="og:image" content="{{ page.image }}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ page.title }}" />
-  <meta name="twitter:description" content="{{ page.description }}" />
-  <meta name="twitter:image" content="{{ page.image }}" />
-  <meta name="twitter:site" content="@{{ site.twitter_username }}" />
-  <link rel="canonical" href="{{ page.url | absolute_url }}" />
-  
-  <!-- AMP Core and Story Library -->
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script async custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js"></script>
-  <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
-  <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
-  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+---
+layout: default
+---
 
-  <style amp-custom>
-    body, amp-story {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .title {
-      font-size: 2.5rem;
-      color: #fff;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-      text-align: center;
-    }
-
-    .subtitle {
-      font-size: 1.2rem;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-
-    .cta-button {
-      margin: 1rem auto;
-      padding: 10px 20px;
-      background-color: #ff5722;
-      color: #fff;
-      font-size: 1rem;
-      text-align: center;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #e64a19;
-    }
-
-    .gradient-bg {
-      background: linear-gradient(to bottom right, #4facfe, #00f2fe);
-    }
-
-    .cta-button:focus {
-      outline: 2px solid #ff5722;
-      outline-offset: 2px;
-    }
-
-    @media (max-width: 768px) {
-      .title {
-        font-size: 2rem;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <amp-story standalone
-    title="{{ page.title }}"
-    publisher="{{ site.title }}"
-    publisher-logo-src="{{ site.publisher_logo }}"
-    poster-portrait-src="{{ page.image }}">
-
-    {% for page_num in (1..10) %}
-      <amp-story-page id="page{{ page_num }}">
+{% for page_num in (1..10) %}
+<amp-story-page id="page{{ page_num }}">
         <amp-story-grid-layer template="fill">
           <amp-img src="{{ page["image" + page_num] }}" width="720" height="1280" layout="responsive" alt="Image for Page {{ page_num }}" loading="lazy"></amp-img>
         </amp-story-grid-layer>
@@ -107,23 +13,3 @@
         </amp-story-grid-layer>
       </amp-story-page>
     {% endfor %}
-
-    <amp-analytics type="googleanalytics">
-      <script type="application/json">
-        {
-          "vars": {
-            "account": "UA-XXXXX-Y"
-          },
-          "triggers": {
-            "trackPageview": {
-              "on": "visible",
-              "request": "pageview"
-            }
-          }
-        }
-      </script>
-    </amp-analytics>
-
-  </amp-story>
-</body>
-</html>
