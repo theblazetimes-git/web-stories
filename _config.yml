@@ -1,0 +1,12 @@
+title: "The Blaze Times | Webstories"
+email: theblazetimes@gmail.com
+description: "A collection of Google Web Stories"
+url: "https://theblazetimes-git.github.io" # Change with your GitHub Pages URL
+baseurl: "web-stories" # Leave blank if using root domain
+theme: jekyll-theme-minimal # Optional theme
+
+# Google Web Stories settings (you can customize as needed)
+collections:
+  stories:
+    output: true
+    permalink: /:name.html  # Web story will be available at /today-is-happy.html
