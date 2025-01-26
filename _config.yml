@@ -1,15 +1,72 @@
+# Site settings
 title: "The Blaze Times | Web Stories"
 twitter_username: "theblazetimes_x"
 email: theblazetimes@gmail.com
 description: "A collection of Google Web Stories"
-url: "https://theblazetimes-git.github.io" # Change with your GitHub Pages URL
-baseurl: "web-stories" # Adjust this based on your setup
-theme: jekyll-theme-minimal # Optional theme
+url: "https://theblazetimes-git.github.io"  # GitHub Pages URL for your web stories
+baseurl: "web-stories"  # Adjust if necessary
+theme: "jekyll-theme-minimal"  # Optional theme for styling
 
+# Collections for your Web Stories
 collections:
   stories:
-    output: true
-    permalink: /:name.html  # Web story will be available at /today-is-happy.html
+    output: true  # Ensure web stories are output as pages
+    permalink: "/:name.html"  # Web story will be accessible at /today-is-happy.html
 
+# Plugins used
 plugins:
-  - jekyll-sitemap  # Add this line to enable the sitemap plugin
+  - jekyll-sitemap  # Generates a sitemap for your site
+  - jekyll-seo-tag  # Optional for SEO tags (for search engines)
+  - jekyll-feed  # For generating RSS feeds
+  - jekyll-paginate-v2  # For pagination (if needed for larger collections of stories)
+  - jekyll-relative-links  # Ensures relative links work within your stories
+
+# SEO settings (optional)
+seo:
+  title: "The Blaze Times Web Stories"
+  description: "Collection of engaging Google Web Stories"
+  author: "The Blaze Times"
+  twitter: "@theblazetimes_x"  # Twitter handle for social sharing
+  google_site_verification: ""  # Optional for Google search verification
+
+# Pagination settings (if needed)
+paginate: 10  # Define how many stories per page (adjust based on your need)
+paginate_path: "/page:num"  # Pagination URL structure
+
+# Markdown settings (for writing stories in markdown format)
+markdown: "kramdown"
+highlighter: "rouge"  # Syntax highlighting for any code blocks in stories
+
+# Sitemap settings (optional)
+sitemap:
+  exclude:
+    - "README.md"
+    - "Gemfile"
+    - "Gemfile.lock"
+    - "node_modules"
+    - "vendor"
+  # Optional: Customize the paths to exclude or include specific parts of your site for the sitemap
+
+# Social links (optional)
+social:
+  github: "https://github.com/theblazetimes-git"
+  twitter: "https://twitter.com/theblazetimes_x"
+  linkedin: "https://linkedin.com/in/theblazetimes"
+
+# Google Analytics (optional)
+google_analytics: "UA-XXXXXXXXX-X"  # Replace with your actual Google Analytics ID
+
+# Default layout for web stories
+defaults:
+  - scope:
+      path: "stories/*"
+    values:
+      layout: "story"  # Use a layout for web stories; make sure this layout exists
+      author: "The Blaze Times"
+
+# Optional: Additional settings
+sass:
+  style: compressed  # Minify CSS output for faster loading
+
+# Google verification (optional)
+google_verification: "your-google-verification-code"  # If you need to verify your site with Google
